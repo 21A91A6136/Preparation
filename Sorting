@@ -1,10 +1,11 @@
 Topics:
 1) Selection Sort - Line 9
 2) Bubble Sort - Line 24
-3)
-4)
-5)
-
+3) Insertion Sort - Line 40
+4) Merge Sort - Line 56
+5) Quick Sort - Line 95
+6) Recursive bubble sort - Line 124
+7) Recursive Insertion sort - Line 137
 
 1) Selection Sort:
 We select minimums
@@ -52,7 +53,7 @@ The time complexity is
 best case - o(n)
 worst,average case = o(n^2)
 
-Merge Sort:
+4) Merge Sort:
 def merges(arr,low,mid,high):
     temp=[]
     left = low
@@ -91,7 +92,7 @@ print(arr)
 The time complexity is o(nlogn)
 space complexity in worst case - o(n)
 
-Quick sort:
+5) Quick sort:
 def partition(arr, low, high):
     pivot = arr[low]
     i = low
@@ -120,7 +121,7 @@ print(arr)
 The time complexity is o(nlogn)
 space complexity in worst case - o(1)
 
-Recursive bubblesort:
+6) Recursive bubblesort:
 def recursivebubble(n,arr):
     if n==1:
         return
@@ -133,7 +134,7 @@ arr = list(map(int, input().split()))
 recursivebubble(n,arr)
 print(arr)
 
-Recursive InsertionSort:
+7) Recursive InsertionSort:
 def insertion_sort(arr, i, n):
     if i == n:
         return
