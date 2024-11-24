@@ -1,4 +1,12 @@
-Selection Sort:
+Topics:
+1) Selection Sort - Line 9
+2) Bubble Sort - Line 24
+3)
+4)
+5)
+
+
+1) Selection Sort:
 We select minimums
 def selection(n,arr):
     for i in range(0,n-1):
@@ -13,7 +21,7 @@ arr = list(map(int,input().split()))
 print(selection(n,arr))
 The time complexity is o(n^2) for best,worst,average cases.
 
-Bubble Sort:
+2) Bubble Sort:
 Swap the maximum number to the last
 def bubble(n,arr):
     for i in range(n-1,0,-1):
@@ -28,7 +36,7 @@ The time complexity is
 best case - o(n)
 worst,average case = o(n^2)
 
-Insertion sort:
+3) Insertion sort:
 Take an element and place it in its current order
 def insertion(n,arr):
     for i in range(0,n+1):
