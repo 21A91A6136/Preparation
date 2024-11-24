@@ -1,0 +1,51 @@
+If we declare array globally then the maximum size of array is 10^7
+Otherwise if we declare inside the int mainthen the maximum size of array is 10^6
+Largest element in array:
+n = list(map(int,input().split()))
+l=n[0]
+for i in range(len(n)):
+    if n[i]>l:
+        l=n[i]
+print(l)
+The time complexity is o(n)
+
+Second largest element in array without sorting:
+n = list(map(int,input().split()))
+l=n[0]
+s=-1
+for i in range(len(n)):
+    if n[i]>l:
+        s=l
+        l=n[i]
+    elif s<n[i] and n[i]!=l:
+            s=n[i]
+print(l,s)
+The time complexity is o(n), space complexity  is o(1)
+
+Check whether is a sorted:
+n = list(map(int,input().split()))
+for i in range(1,len(n)):
+    if n[i]>n[i-1]:
+        print(False)
+    else:
+        print(True)
+The time complexity is o(n)
+
+Remove duplicates from an array
+n = list(map(int,input().split()))
+i=0
+for j in range(1,len(n)):
+    if n[i]!=n[j]:
+        n[i+1] = n[j]
+        i+=1
+print(i+1)
+The time complexity is o(n)
+
+Left rotate array by one:
+n = list(map(int,input().split()))
+temp=n[0]
+for i in range(1,len(n)):
+    n[i-1]=n[i]
+n[len(n)-1]=temp
+print(n)
+The time complexity is o(n) & space complexity is o(n) the extra space is o(1)
