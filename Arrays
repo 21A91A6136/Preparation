@@ -49,3 +49,17 @@ for i in range(1,len(n)):
 n[len(n)-1]=temp
 print(n)
 The time complexity is o(n) & space complexity is o(n) the extra space is o(1)
+
+Left rotate array by n places:
+n = list(map(int,input().split()))
+d=int(input())
+d = d%len(n)
+temp=[]
+for i in range(d):
+    temp.append(n[i])
+for i in range(d,len(n)):
+    n[i-d]=n[i]
+for i in range(len(n)-d,len(n)):
+    n[i]=temp[i-(len(n)-d)]
+print(n)
+The time complexity is o(n) & space complexity is o(d) 
