@@ -12,6 +12,8 @@ Topics:
 9) Union of two arrays - Line 105
 10) Intersection of two arrays - Line 133
 11) Missing number in array - Line 153
+12) Max Consecutive one's - Line 175
+13) Find the element which appears one's - Line 188
 
 1) Largest element in array:
 n = list(map(int,input().split()))
@@ -170,3 +172,26 @@ xor1^=n+1
 xor1=xor1^xor2
 print(xor1)
 The time complexity is o(n)
+
+12) Max Consecutive one's
+arr = list(map(int,input().split()))
+c=0
+maxx=0
+for i in arr:
+    if i==1:
+        c+=1
+    else:
+        c=0
+    maxx = max(maxx,c)
+print(maxx)
+The time complexity is o(n)
+
+13) Find the element which appears one's 
+arr = list(map(int,input().split()))
+xor = 0
+for i in arr:
+    xor^=i
+print(xor)
+The time complexity is o(n)
+
+14) 
