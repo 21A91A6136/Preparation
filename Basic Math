@@ -1,0 +1,115 @@
+Topics:
+1) Count no of digits - Line 11
+2) Reverse of a number - Line 25
+3) Palindrome or not - Line 35
+4) Armstrong Number - Line 49
+5) print all the divisors of a number - Line 63
+6) Prime number - Line 79
+7) GCD/HCF - Line 94
+8) Euclidean Method for GCD/HCF - Line 103
+
+1) Count no of digits
+n = int(input())
+c=0
+while n>0:
+    c+=1
+    n = n//10
+print(c)
+The time complexity is o(log10(n))
+(or)
+import math
+n = int(input())
+c=math.log10(n)+1
+print(int(c))
+
+2) Reverse of a number
+n = int(input())
+r=0
+while n>0:
+    l = n%10
+    r = r*10+l
+    n = n//10
+print(r)
+The time complexity is o(log10(n))
+
+3) Palindrome or not
+n = int(input())
+temp = n
+r=0
+while n>0:
+    l = n%10
+    r = r*10+l
+    n = n//10
+if temp==r:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+The time complexity is o(log10(n))
+
+4) Armstrong number
+n = int(input())
+temp = n
+r=0
+while n>0:
+    l = n%10
+    r = r+(l*l*l);
+    n = n//10
+if temp==r:
+    print("Armstrong")
+else:
+    print("Not Armstrong")
+The time complexity is o(log10(n))
+
+5) Print all divisors of a number
+n = int(input())
+for i in range(1,n+1):
+    if n%i==0:
+        print(i)
+The time complexity is o(n)
+(or)
+import math
+n = int(input())
+for i in range(1,int(math.sqrt(n))+1):
+    if n%i==0:
+        print(i)
+        if((n//i)!=i):
+            print(n//i)
+The time complexity is o(sqrt(n))
+
+6) Prime number
+import math
+n = int(input())
+c=0
+for i in range(1,int(math.sqrt(n))+1):
+    if n%i==0:
+        c+=1
+        if((n//i)!=i):
+            c+=1
+if c!=2:
+    print("Not Prime")
+else:
+    print("Prime")
+The time complexity is o(sqrt(n))
+
+7) GCD / HCF
+a = int(input())
+b = int(input())
+for i in range(min(a,b),1,-1):
+    if a%i==0 and b%i==0:
+        print(i)
+        break
+The time complexity is o(n)
+
+8) Euclidean Method for GCD/HCF
+a = int(input())
+b = int(input())
+while(a>0 and b>0):
+    if a>b:
+        a=a%b
+    else:
+        b=b%a
+if a==0:
+    print(b)
+else:
+    print(a)
+The time complexity is o(logfi(min(a,b))
