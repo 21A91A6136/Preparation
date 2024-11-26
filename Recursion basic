@@ -1,0 +1,104 @@
+Topics:
+1) Print name n time
+2) Print 1-n numbers
+3) Print n-1 numbers
+4) Print 1-n numbers using backtracking
+5) Print n-1 numbers using backtracking
+6) Sum of n natural numbers
+7) Factorial of n natural numbers
+8) Reverse of a array
+9) Fibonacci number
+
+1) Print name n time
+def name(c,a):
+    if(c>a):
+        return
+    else:
+        print("Hyndhavi")
+        name(c+1,a)
+a = int(input())
+b=name(1,a)
+print(b)
+
+2)Print 1-n numbers
+def name(c,a):
+    if(c>a):
+        return
+    else:
+        print(c)
+        name(c+1,a)
+a = int(input())
+b=name(1,a)
+print(b)
+
+3) Print n-1 numbers
+def name(c,a):
+    if(c<1):
+        return
+    else:
+        print(c)
+        name(c-1,a)
+a = int(input())
+b=name(a,a)
+print(b)
+
+4) Print 1-n numbers using backtracking
+def name(c,a):
+    if(c<1):
+        return
+    else:
+        name(c-1,a)
+        print(c)
+a = int(input())
+b=name(a,a)
+print(b)
+
+5) Print n-1 numbers using backtracking
+def name(c,a):
+    if(c>a):
+        return
+    else:
+        name(c+1,a)
+        print(c)
+a = int(input())
+b=name(1,a)
+print(b)
+
+6) Sum of n natural numbers
+def name(c):
+    if c==0:
+        return 0
+    return c+name(c-1)
+a = int(input())
+b=name(a)
+print(b)
+
+7) Factorial of n natural numbers
+def name(c):
+    if c==0:
+        return 1
+    return c*name(c-1)
+a = int(input())
+b=name(a)
+print(b)
+
+8) Reverse of an array
+def name(c,arr,n):
+    if c>=n//2:
+        return 
+    arr[c],arr[n-c-1]=arr[n-c-1],arr[c]
+    name(c+1,arr,n)
+    return arr
+n = int(input())
+a = list(map(int,input().split()))
+print(name(0,a,n))
+
+9)Fibonacci number
+def name(n):
+    if n<=1:
+        return n;
+    return name(n-1)+name(n-2)
+n = int(input())
+print(name(n))
+
+
