@@ -1,0 +1,24 @@
+Topics:
+1) 2 Sum problem - Line 
+2)
+3)
+
+
+1) 2 Sum problem
+arr = list(map(int,input().split()))
+k = int(input())
+n = len(arr)
+arr =sorted(arr)
+left = 0
+right = n-1
+sums = 0
+while left<right:
+    sums = arr[left]+arr[right]
+    if sums==k:
+        print("YES")
+        break
+    elif sums<k:
+        left+=1
+    else:
+        right-=1
+The time complexity is o(n) + o(nlogn)
