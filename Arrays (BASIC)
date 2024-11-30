@@ -1,20 +1,20 @@
 If we declare array globally then the maximum size of array is 10^7
 Otherwise if we declare inside the int mainthen the maximum size of array is 10^6
 Topics:
-1) Largest element in array - Line 16
-2) Second largest element in array without sorting - Line 25
-3) Check whether is a sorted - Line 38
-4) Remove duplicates from an array - Line 47
-5) Left rotate array by one - Line 57
-6) Left rotate array by n places - Line 66
-7) move zeros to end - Line 80
-8) Linear Search - Line 96
-9) Union of two arrays - Line 105
-10) Intersection of two arrays - Line 133
-11) Missing number in array - Line 153
-12) Max Consecutive one's - Line 175
-13) Find the element which appears one's - Line 188
-14) Longest subarray with sum k for +ves & -ves - Line 197
+1) Largest element in array - Line 19
+2) Second largest element in array without sorting - Line 28
+3) Check whether is a sorted - Line 41
+4) Remove duplicates from an array - Line 50
+5) Left rotate array by one - Line 60
+6) Left rotate array by n places - Line 69
+7) move zeros to end - Line 83
+8) Linear Search - Line 99
+9) Union of two arrays - Line 108
+10) Intersection of two arrays - Line 136
+11) Missing number in array - Line 156
+12) Max Consecutive one's - Line 177
+13) Find the element which appears one's - Line 190
+14) Longest subarray with sum k for +ves & -ves - Line 198
 
 1) Largest element in array:
 n = list(map(int,input().split()))
