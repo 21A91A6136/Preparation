@@ -1,8 +1,9 @@
 Topics:
 1) 2 Sum problem - Line 
-2)
-3)
-
+2) sort 0's 1's 2's in an array(Dutch National Flag algorithm)
+3) Majority Element that appears n/2 times (Moore's voting algorithm)
+4) Maximum Subarray sum (kadane's algorithm)
+5)
 
 1) 2 Sum problem
 arr = list(map(int,input().split()))
@@ -22,3 +23,59 @@ while left<right:
     else:
         right-=1
 The time complexity is o(n) + o(nlogn)
+
+2) Sort 0's 1's 2's in an array (Dutch National Flag algorithm)
+arr = list(map(int,input().split()))
+low= 0
+mid = 0
+high = len(arr)-1
+while(mid<=high):
+    if arr[mid]==0:
+        arr[low],arr[mid]=arr[mid],arr[low]
+        low+=1
+        mid+=1
+    elif arr[mid]==1:
+        mid+=1
+    else:
+        arr[mid],arr[high] = arr[high],arr[mid]
+        high-=1
+print(arr)
+The time complexity is o(n),space complexity is o(1)
+
+3) Majority Element that appears n/2 times (Moore's voting algorithm)
+arr = list(map(int,input().split()))
+c = 0
+el = 0
+for i in range(len(arr)):
+    if c==0:
+        c=1
+        el = arr[i]
+    elif arr[i]==el:
+        c+=1
+    else:
+        c-=1
+c1=0
+for i in range(len(arr)):
+    if arr[i]==el:
+        c1+=1
+if c1>len(arr)//2:
+    print(el)
+else:
+    print(-1)
+The time complexity is o(n) + (o(n) if exists majority element) 
+
+4) Maximum subarray sum (Kadane's sum)
+arr = list(map(int,input().split()))
+n = len(arr)
+maxi = float('-inf')
+current_sum = 0
+for i in range(n):
+    current_sum += arr[i]
+    if current_sum > maxi:
+        maxi = current_sum
+    if current_sum < 0:
+        current_sum = 0
+print(maxi)
+The time complexity is o(n), space complexity is o(1)
+
+5)
