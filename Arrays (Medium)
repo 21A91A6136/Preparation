@@ -3,7 +3,8 @@ Topics:
 2) sort 0's 1's 2's in an array(Dutch National Flag algorithm)
 3) Majority Element that appears n/2 times (Moore's voting algorithm)
 4) Maximum Subarray sum (kadane's algorithm)
-5)
+5) Buy and sell stock
+6) Rearrange array element based on sign
 
 1) 2 Sum problem
 arr = list(map(int,input().split()))
@@ -78,4 +79,29 @@ for i in range(n):
 print(maxi)
 The time complexity is o(n), space complexity is o(1)
 
-5)
+5) Buy and sell stock
+arr = list(map(int,input().split()))
+p=0
+mini = arr[0]
+for i in range(1,len(arr)):
+    cost = arr[i]-mini
+    p=max(p,cost)
+    mini = min(mini,arr[i])
+print(p)
+The time complexity is o(n)
+
+6) Rearrange array elements based on sign
+arr = list(map(int,input().split()))
+c = [0]*len(arr)
+p = 0
+neg = 1
+for i in range(len(arr)):
+    if arr[i] < 0:
+        if neg < len(c):
+            c[neg] = arr[i]
+            neg += 2
+    else:
+        if p < len(c):
+            c[p] = arr[i]
+            p += 2
+print(c)
