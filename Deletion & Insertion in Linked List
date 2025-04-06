@@ -1,0 +1,22 @@
+1. Delete the Head Node
+2. Delete the tail Node
+
+1. Delete the Head Node
+def deleteHead(head):
+    if not head:
+        return None
+    temp = head
+    head = head.next
+    del temp
+    return head
+
+2. Delete the tail node
+def deleteTail(head):
+    if not head or not head.next:
+        return None  
+    temp = head
+    while temp.next.next:
+        temp = temp.next
+    del temp.next
+    temp.next = None
+    return head
