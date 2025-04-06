@@ -1,0 +1,32 @@
+why Linked List?
+* In array we cannot add numbers once the array size is fixed. 
+* It can increase its size at any time.
+* It is not stored in contiguous location. 
+* data is linked with next 
+* locate 1st element as head
+Where it is used?
+It is used in stack and Queue because they have flexible size.
+Real Life example: rendering to different pages from the actual page.
+
+1. Length of a linked list
+2. Search element in Linked List
+
+1. Length of a linked list
+class Solution:
+    def getCount(self, head):
+        c=0
+        temp = head
+        while(temp):
+            temp = temp.next
+            c+=1
+        return c
+2. Search element in Linked List
+class Solution:
+    def searchKey(self, n, head, key):
+        #Code here
+        temp = head
+        while(temp):
+            if temp.data==key:
+                return True
+            temp = temp.next
+        return False
