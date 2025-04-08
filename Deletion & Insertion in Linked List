@@ -20,3 +20,98 @@ def deleteTail(head):
     del temp.next
     temp.next = None
     return head
+
+3. Delete Kth element in linked list
+def deleteTail(head, k):
+    if not head:
+        return None
+    if k == 1:
+        temp = head
+        head = head.next
+        del temp
+        return head
+    c = 0
+    prev = None
+    temp = head
+    while temp:
+        if c == k:
+            prev.next = prev.next.next
+            del temp
+            break
+        prev = temp
+        temp = temp.next
+        c += 1
+    return head
+
+4. Delete value present in Linked List
+def deleteValue(head, value):
+    if not head:
+        return None
+    if head.val == value:
+        temp = head
+        head = head.next
+        del temp
+        return head
+    prev = None
+    temp = head
+    while temp:
+        if temp.val == value:
+            prev.next = temp.next
+            del temp
+            break
+        prev = temp
+        temp = temp.next
+    return head
+
+5. Insertion at head in Linked List
+def insertAtHead(head, value):
+    temp = ListNode(value)
+    temp.next = head
+    return temp
+
+6. Insertion at Last in Linked List
+def insertAtHead(head, value):
+    new = ListNode(value)
+    if not head:
+        return new
+    temp = head
+    while(temp.next): 
+        temp=temp.next
+    temp.next = new
+    return head
+
+7. Insert element at kth position in Linked  List
+def insertAtHead(head, value,k):
+    new = ListNode(value)
+    if not head:
+        if k==1:
+            return new
+    c=0
+    temp = head
+    while temp:
+        c+=1
+        if c==k-1:
+            new.next = temp.next
+            temp.next = new
+            break
+        temp = temp.next
+    return head
+
+8. Insert element before the position in Linked List
+def insertBeforeValue(head, value, x):
+    new = ListNode(value)
+    if not head:
+        return new
+    if head.val == x:
+        new.next = head
+        return new
+    temp = head
+    prev = None
+    while temp:
+        if temp.val == x:
+            new.next = temp
+            prev.next = new
+            break
+        prev = temp
+        temp = temp.next
+    return head
