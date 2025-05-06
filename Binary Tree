@@ -57,23 +57,69 @@ Lecture - 2
 Maximum value from BT:
 def maximum(root):
     if root is not None:
-        return max(root.val,maximum(root.left),maximum(root.right))
+        return max(root.val,max(maximum(root.left),maximum(root.right)))
     return 0
+(or)
+def maximum(root):
+    if root is None:
+        return 0
+    left_max = display(root.left)
+    right_max = display(root.right)
+    if left_max>right_max:
+        temp_max = left_max
+    else:
+        temp_max = right_max
+    if root.val>temp_max:
+        return root.val
+    else:
+        return temp_max
 
 Minimum value from BT:
 def minimum(root):
     if root is not None:
-        return min(root.val,maximum(root.left),maximum(root.right))
+        return min(root.val,min(minimum(root.left),minimum(root.right)))
     return 0
+(or)
+def minimum(root):
+    if root is None:
+        return float('inf') 
+    left_min = display(root.left)
+    right_min = display(root.right)
+    if left_min < right_min:
+        temp_min = left_min
+    else:
+        temp_min = right_min
+    if root.val < temp_min:
+        return root.val
+    else:
+        return temp_min
 
 Sum of nodes in BT
 def sum(root):
     if root is not None:
         return root.val+sum(root.left)+sum(root.right)
     return 0
+(or)
+def sum_of_nodes(root):
+    if root is None:
+        return 0
+    left_sum = display(root.left)
+    right_sum = display(root.right)
+
+    total = root.val + left_sum + right_sum
+    return total
 
 Product of nodes in BT
 def prod(root):
     if root is not None and root.val!=0:
         return root.val*prod(root.left)*prod(root.right)
     return 1
+(or)
+def product(root):
+    if root is None:
+        return 1
+    left_sum = display(root.left)
+    right_sum = display(root.right)
+
+    total = root.val * left_sum * right_sum
+    return total
