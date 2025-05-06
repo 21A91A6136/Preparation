@@ -123,3 +123,10 @@ def product(root):
 
     total = root.val * left_sum * right_sum
     return total
+
+Level of BT:
+def levels(root):
+    if root is None:
+        return 0
+    return 1+max(levels(root.left),levels(root.right))
+
