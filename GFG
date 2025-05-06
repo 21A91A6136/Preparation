@@ -1,0 +1,47 @@
+Invert a Binary Tree:
+class Solution:
+    #Function to convert a binary tree into its mirror tree.
+    def mirror(self, root):
+        if root is None:
+            return root
+        root.left,root.right = root.right,root.left
+        self.mirror(root.left)
+        self.mirror(root.right)
+        return root
+
+Identical or same Tree:
+class Solution:
+    #Function to check if two trees are identical.
+    def isIdentical(self,r1, r2):
+        if r1 is None and r2 is None:
+            return True
+        if r1 is None or r2 is None:
+            return False
+        if r1.data != r2.data:
+            return False
+        return self.isIdentical(r1.left, r2.left) and self.isIdentical(r1.right, r2.right)
+
+Symmetric Tree:
+step1: Invert LST or RST
+step2: Apply Same Tree or Identical Tree
+step3: Then compare and return the value
+def mirror(self,root):
+        if root is None:
+            return root
+        root.left,root.right = root.right,root.left
+        self.mirror(root.left)
+        self.mirror(root.right)
+        return root
+
+    def isIdentical(self,r1,r2):
+        if r1 is None and r2 is None:
+            return True
+        if r1 is None or r2 is None:
+            return False
+        if r1.val!=r2.val:
+            return False
+        return self.isIdentical(r1.left,r2.left) and self.isIdentical(r1.right,r2.right)
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        self.mirror(root.left)
+        return self.isIdentical(root.left,root.right)
+
