@@ -5,6 +5,7 @@ Topics:
 4) Maximum Subarray sum (kadane's algorithm)
 5) Buy and sell stock
 6) Rearrange array element based on sign
+7) Leaders in a array Problem
 
 1) 2 Sum problem
 arr = list(map(int,input().split()))
@@ -105,3 +106,15 @@ for i in range(len(arr)):
             c[p] = arr[i]
             p += 2
 print(c)
+
+7) Leaders in a array problem
+arr = list(map(int,input().split()))
+c=[]
+maxi = -2**31
+for i in range(len(arr)-1,-1,-1):
+    if arr[i]>maxi:
+        c.append(arr[i])
+    maxi = max(maxi,arr[i])
+print(c[::-1])
+
+
