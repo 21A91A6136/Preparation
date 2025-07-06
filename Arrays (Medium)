@@ -6,6 +6,7 @@ Topics:
 5) Buy and sell stock
 6) Rearrange array element based on sign
 7) Leaders in a array Problem
+8) Longest consective sequence
 
 1) 2 Sum problem
 arr = list(map(int,input().split()))
@@ -117,4 +118,16 @@ for i in range(len(arr)-1,-1,-1):
     maxi = max(maxi,arr[i])
 print(c[::-1])
 
-
+8) Longest consective sequence
+arr = list(map(int,input().split()))
+arr = set(arr)
+longest = 1
+for i in arr:
+    if i-1 not in arr:
+        cnt = 1
+        val = i
+        while(val+1 in arr):
+            val+=1
+            cnt+=1
+        longest = max(longest,cnt)
+print(longest)
