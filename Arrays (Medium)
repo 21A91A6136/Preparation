@@ -7,6 +7,7 @@ Topics:
 6) Rearrange array element based on sign
 7) Leaders in a array Problem
 8) Longest consective sequence
+9) Next Permutation
 
 1) 2 Sum problem
 arr = list(map(int,input().split()))
@@ -131,3 +132,22 @@ for i in arr:
             cnt+=1
         longest = max(longest,cnt)
 print(longest)
+
+9) Next Permutation
+arr = list(map(int,input().split()))
+n = len(arr)
+ind = -1
+for i in range(n-2,0,-1):
+    if arr[i]<arr[i+1]:
+        ind = i
+        break
+if ind==-1:
+    print(arr[::-1])
+else:
+    for i in range(n-1,ind,-1):
+        if arr[i]>arr[ind]:
+            arr[i],arr[ind] = arr[ind],arr[i]
+            break
+    fi_p = arr[:ind+1]
+    sec_p = arr[ind+1:]
+    print(fi_p+sec_p[::-1])
