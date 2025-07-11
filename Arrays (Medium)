@@ -8,6 +8,7 @@ Topics:
 7) Leaders in a array Problem
 8) Longest consective sequence
 9) Next Permutation
+10) Leaders in an array
 
 1) 2 Sum problem
 arr = list(map(int,input().split()))
@@ -151,3 +152,14 @@ else:
     fi_p = arr[:ind+1]
     sec_p = arr[ind+1:]
     print(fi_p+sec_p[::-1])
+
+10) Leaders in an array
+arr = list(map(int,input().split()))
+c=[]
+e = arr[-1]
+c.append(e)
+for i in range(len(arr)-2,0,-1):
+    if arr[i]>e:
+        c.append(arr[i])
+        e = arr[i]
+print(c[::-1])
