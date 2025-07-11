@@ -9,6 +9,7 @@ Topics:
 8) Longest consective sequence
 9) Next Permutation
 10) Leaders in an array
+11) Longest Consecutive Subsequence
 
 1) 2 Sum problem
 arr = list(map(int,input().split()))
@@ -163,3 +164,17 @@ for i in range(len(arr)-2,0,-1):
         c.append(arr[i])
         e = arr[i]
 print(c[::-1])
+
+11) Longest Consecutive subsequence
+arr = list(map(int,input().split()))
+arr = set(arr)
+maxlen = -2**31
+for i in arr:
+    if i-1 not in arr:
+        c=1
+        e = i
+        while (e+1) in arr:
+            c+=1
+            e+=1
+        maxlen = max(maxlen,c)
+print(maxlen)
