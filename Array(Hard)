@@ -1,0 +1,33 @@
+1) Pascal Triangle
+  i) Find nth row's and cth column value
+  ii) Find the row values 
+  iii) Print entire triangle
+
+1) Pascal Triangle
+  i) Find nth row's and cth column value
+  def ncr(n,r):
+    res=1
+    for i in range(r):
+        res = res*(n-i)
+        res=res//(i+1)
+    return res
+  n = int(input())
+  r = int(input())
+  print(ncr(n,r)
+
+  ii) Find the row values 
+  def ncr(n,r):
+    res=1
+    for i in range(r):
+        res = res*(n-i)
+        res=res//(i+1)
+    return res
+  def value(n):
+      for i in range(n):
+          print(ncr(n-1,i),end=" ")
+      print()
+  n = int(input())
+  r = int(input())
+  value(n)
+
+  iii) Print entire triangle
