@@ -2,6 +2,7 @@
   i) Find nth row's and cth column value
   ii) Find the row values 
   iii) Print entire triangle
+2) Majority element [>n/3 times]
 
 1) Pascal Triangle
   i) Find nth row's and cth column value
@@ -31,3 +32,52 @@
   value(n)
 
   iii) Print entire triangle
+  def ncr(n,r):
+    res=1
+    for i in range(r):
+        res=res*(n-i)
+        res=res//(i+1)
+    return res
+  n = int(input())
+  c=[]
+  for i in range(0,n):
+      t=[]
+      for j in range(i+1):
+          t.append(ncr(i,j))
+      c.append(t)
+  print(c)
+
+2) Majority element [>n/3 times]
+arr = list(map(int,input().split()))
+c1=0
+c2=0
+el1 = -2**31
+el2 = -2**31
+for i in range(len(arr)):
+    if(c1==0 and arr[i]!=el2):
+        c1+=1
+        el1= arr[i]
+    elif(c2==0 and arr[i]!=el1):
+        c2+=1
+        el2 = arr[i]
+    elif(el1==arr[i]):
+        c1+=1
+    elif(el2==arr[i]):
+        c2+=1
+    else:
+        c1-=1
+        c2-=1
+ls=[]
+c1=0
+c2=0
+for i in range(len(arr)):
+    if(el1==arr[i]):
+        c1+=1
+    elif(el2==arr[i]):
+        c2+=1
+n = len(arr)
+if c1 > n // 3:
+    ls.append(el1)
+if c2 > n // 3:
+    ls.append(el2)
+print(ls)
