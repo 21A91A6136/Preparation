@@ -3,6 +3,7 @@
   ii) Find the row values 
   iii) Print entire triangle
 2) Majority element [>n/3 times]
+3) 3Sum Problem
 
 1) Pascal Triangle
   i) Find nth row's and cth column value
@@ -81,3 +82,28 @@ if c1 > n // 3:
 if c2 > n // 3:
     ls.append(el2)
 print(ls)
+
+3) 3Sum Problem
+arr = list(map(int,input().split()))
+arr.sort()
+c=[]
+for i in range(len(arr)):
+    if(i>0 and arr[i]==arr[i-1]):
+        continue
+    j = i+1
+    k = len(arr)-1
+    while(j<k):
+        sums = arr[i]+arr[j]+arr[k]
+        if sums==0:
+            temp = [arr[i],arr[j],arr[k]]
+            c.append(temp)
+            i+=1
+            k-=1
+            while(j<k and arr[j]==arr[j-1]):
+                j+=1
+            while(j<k and arr[k]==arr[k+1]): k-=1
+        elif sums<0:
+            j+=1
+        else:
+            k-=1
+print(c)
