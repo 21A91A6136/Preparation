@@ -8,6 +8,7 @@
 5) Merge Overlapping sub-intervals
 6) Length of the longest subarray with sum 0
 7) Count the no of subarray with xor k
+8) Maximum Product subarray
 
 1) Pascal Triangle
   i) Find nth row's and cth column value
@@ -186,3 +187,19 @@ for i in range(len(arr)):
     c+=mpp[x]
     mpp[xr]+=1
 print(c)
+
+8) Maximum Product subarray
+arr = list(map(int,input().split()))
+n = len(arr)
+pre = 1
+suff = 1
+ans = -2**31
+for i in range(len(arr)):
+    if pre==0:
+        pre =1
+    if suff==0:
+        suff=1
+    pre = pre*arr[i]
+    suff = suff*arr[n-i-1]
+    ans = max(ans,max(pre,suff))
+print(ans)
