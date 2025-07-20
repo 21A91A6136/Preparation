@@ -7,6 +7,7 @@
 4) 4Sum Problem
 5) Merge Overlapping sub-intervals
 6) Length of the longest subarray with sum 0
+7) Count the no of subarray with xor k
 
 1) Pascal Triangle
   i) Find nth row's and cth column value
@@ -170,3 +171,18 @@ for i in range(len(arr)):
         else:
             maxi = max(maxi,i-mpp[s])
 print(maxi)
+
+7) Count the no of subarray with xor k
+from collections import defaultdict
+arr = list(map(int,input().split()))
+k = int(input())
+xr=0
+mpp = defaultdict(int)
+mpp[xr] = 1
+c=0
+for i in range(len(arr)):
+    xr = xr^arr[i]
+    x = xr^k
+    c+=mpp[x]
+    mpp[xr]+=1
+print(c)
