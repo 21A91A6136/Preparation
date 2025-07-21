@@ -3,7 +3,14 @@ it is sorted as well
 example: consider a word "help"
 so we will find the word help in each and every page of dictionary until it is found
 another way splitting the dictionary pages and checking based on alphabet either in left side or right side
-Basic Code:
+
+1. Basic Binary search code
+2. Recursive Binary search
+3. Lower Bound Algorithm
+4. Upper Bound Algorithm
+5. Search Insert position
+6. Floor and ceil of
+1. Basic Code:
 arr = list(map(int,input().split()))
 target  = int(input())
 n= len(arr)
@@ -19,7 +26,7 @@ while low<=high:
         high = mid-1
 print(-1)
 
-Recursive Binary search:
+2. Recursive Binary search:
 def binarysearch(arr,low,high,target):
     if low>high:
         return -1
@@ -38,4 +45,83 @@ low = 0
 high = n-1
 print(binarysearch(arr,low,high,target))
 
+3. Lower Bound Algorithm
+arr = list(map(int,input().split()))
+target  = int(input())
+n= len(arr)
+low = 0
+high = n-1
+ans = n
+while low<=high:
+    mid = (low+high)//2
+    if arr[mid]>=x:
+        ans = mid
+        high = mid-1
+    else:
+        low = mid+1
+print(ans)
 
+4. Upper Bound algorithm
+arr = list(map(int,input().split()))
+target  = int(input())
+n= len(arr)
+low = 0
+high = n-1
+ans = n
+while low<=high:
+    mid = (low+high)//2
+    if arr[mid]>x:
+        ans = mid
+        high = mid-1
+    else:
+        low = mid+1
+print(ans)
+
+5. Search Insert position
+arr = list(map(int,input().split()))
+target  = int(input())
+n= len(arr)
+low = 0
+high = n-1
+ans = n
+while low<=high:
+    mid = (low+high)//2
+    if arr[mid]>=x:
+        ans = mid
+        high = mid-1
+    else:
+        low = mid+1
+print(ans)
+
+6. Floor and ceil
+Floor:
+arr = list(map(int,input().split()))
+target  = int(input())
+n= len(arr)
+low = 0
+high = n-1
+ans = n
+while low<=high:
+    mid = (low+high)//2
+    if arr[mid]<=x:
+        ans = arr[mid]
+       low = mid+1
+    else:
+        high = mid-1
+print(ans)
+
+ceil:
+arr = list(map(int,input().split()))
+target  = int(input())
+n= len(arr)
+low = 0
+high = n-1
+ans = -1
+while low<=high:
+    mid = (low+high)//2
+    if arr[mid]>=x:
+        ans = mid
+        high = mid-1
+    else:
+        low = mid+1
+print(ans)
