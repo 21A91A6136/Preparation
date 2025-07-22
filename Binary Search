@@ -9,7 +9,10 @@ another way splitting the dictionary pages and checking based on alphabet either
 3. Lower Bound Algorithm
 4. Upper Bound Algorithm
 5. Search Insert position
-6. Floor and ceil of
+6. Floor and ceil 
+7. Find first and last occurence of element in sorted array
+8. Count no of occurences of a element
+
 1. Basic Code:
 arr = list(map(int,input().split()))
 target  = int(input())
@@ -125,3 +128,89 @@ while low<=high:
     else:
         low = mid+1
 print(ans)
+
+7. Find first and last occurence of element in sorted array
+def lower(arr,x,n):
+    low = 0
+    high = n-1
+    first = -1
+    while(low<=high):
+        mid = (low+high)//2
+        if arr[mid]==x:
+            first = mid
+            high = mid-1
+        elif arr[mid]<x:
+            low=mid+1
+        else:
+            high = mid-1
+    return first
+def upper(arr,x,n):
+    low = 0
+    high = n-1
+    last = -1
+    while(low<=high):
+        mid = (low+high)//2
+        if arr[mid]==x:
+            last = mid
+            low = mid+1
+        elif arr[mid]<x:
+            low=mid+1
+        else:
+            high = mid-1
+    return last
+def fandl(arr,x,n):
+    first = lower(arr,x,n)
+    if first==-1:
+        return {-1,-1}
+    last = upper(arr,x,n)
+    return first,last
+arr = list(map(int,input().split()))
+x = int(input())
+n = len(arr)
+print(fandl(arr,x,n))
+
+8. Count no of occurences of a element
+def lower(arr,x,n):
+    low = 0
+    high = n-1
+    first = -1
+    while(low<=high):
+        mid = (low+high)//2
+        if arr[mid]==x:
+            first = mid
+            high = mid-1
+        elif arr[mid]<x:
+            low=mid+1
+        else:
+            high = mid-1
+    return first
+def upper(arr,x,n):
+    low = 0
+    high = n-1
+    last = -1
+    while(low<=high):
+        mid = (low+high)//2
+        if arr[mid]==x:
+            last = mid
+            low = mid+1
+        elif arr[mid]<x:
+            low=mid+1
+        else:
+            high = mid-1
+    return last
+def fandl(arr,x,n):
+    first = lower(arr,x,n)
+    if first==-1:
+        return {-1,-1}
+    last = upper(arr,x,n)
+    return first,last
+def count(arr,x,n):
+    first,last = fandl(arr,x,n)
+    if first==-1:
+        return 0
+    else:
+        return last-first+1
+arr = list(map(int,input().split()))
+x = int(input())
+n = len(arr)
+print(count(arr,x,n))
