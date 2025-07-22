@@ -10,6 +10,9 @@ Topics:
 9) Next Permutation
 10) Leaders in an array
 11) Longest Consecutive Subsequence
+12) Rotate image by 90 degree
+13) Spiral Traversal of matrix
+14) Count subarray sum equals k
 
 1) 2 Sum problem
 arr = list(map(int,input().split()))
@@ -178,3 +181,60 @@ for i in arr:
             e+=1
         maxlen = max(maxlen,c)
 print(maxlen)
+
+12) Rotate image by 90 degree
+def rotated(arr):
+    for i in range(len(arr)):
+        for j in range(i):
+            arr[i][j],arr[j][i]=arr[j][i],arr[i][j]
+    for i in range(len(arr)):
+        arr[i].reverse()
+    return arr
+arr = [[1,2,3],[4,5,6],[7,8,9]]
+print(rotated(arr))
+
+13) Spiral Traversal of matrix
+def spiralmatrix(mat):
+    ans=[]
+    n = len(arr)
+    m = len(arr[0])
+    top = 0
+    left = 0
+    right  = m-1
+    bottom = n-1
+    while (top <= bottom and left <= right):
+        for i in range(left, right + 1):
+            ans.append(mat[top][i])
+        top += 1
+        for i in range(top, bottom + 1):
+            ans.append(mat[i][right])
+        right -= 1
+        if (top <= bottom):
+            for i in range(right, left - 1, -1):
+                ans.append(mat[bottom][i])
+            bottom -= 1
+        if (left <= right):
+            for i in range(bottom, top - 1, -1):
+                ans.append(mat[i][left])
+            left += 1
+    return ans
+arr = [[1,2,3],[4,5,6],[7,8,9]]
+print(spiralmatrix(arr))
+
+14) Count subarray sum equals k
+from collections import defaultdict
+def findAllSubarraysWithGivenSum(arr, k):
+    n = len(arr)
+    mpp = defaultdict(int)
+    preSum = 0
+    cnt = 0
+    mpp[0] = 1 
+    for i in range(n):
+        preSum += arr[i]
+        remove = preSum - k
+        cnt += mpp[remove]
+        mpp[preSum] += 1
+    return cnt
+arr = list(map(int,input().split()))
+k = int(input())
+print(findAllSubarraysWithGivenSum(arr, k))
