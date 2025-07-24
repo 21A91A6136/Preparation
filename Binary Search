@@ -14,6 +14,7 @@ another way splitting the dictionary pages and checking based on alphabet either
 8. Count no of occurences of a element
 9. Search element in rotated array - I
 10. Search element in rotated array - II
+11. Minimum in Rotated sorted array
 
 1. Basic Code:
 arr = list(map(int,input().split()))
@@ -266,3 +267,21 @@ while(low<=high):
             high = mid-1
 else:
     print(-1)
+
+11. Minimum in Rotated Sorted Array
+arr = list(map(int,input().split()))
+low = 0
+high = len(arr)-1
+ans = float('inf')
+while(low<=high):
+    mid = (low+high)//2
+    if(arr[low]<=arr[high]):
+        ans = min(ans,arr[low])
+        break
+    if(arr[low]<=arr[mid]):
+        ans = min(ans,arr[low])
+        low = mid+1
+    else:
+        ans = min(ans,arr[mid])
+        high = mid-1
+print(ans)
