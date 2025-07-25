@@ -16,6 +16,7 @@ another way splitting the dictionary pages and checking based on alphabet either
 10. Search element in rotated array - II
 11. Minimum in Rotated sorted array
 12. Find out how many times the array is rotated
+13. Find single element in sorted array
 
 1. Basic Code:
 arr = list(map(int,input().split()))
@@ -333,3 +334,28 @@ while low <= high:
             ans = arr[mid]
         high = mid - 1
 print(index)
+
+13. Find single element in a sorted array
+arr = list(map(int,input().split()))
+n= len(arr)
+low = 1
+high = len(arr)-2
+if len(arr)==1:
+    print(arr)
+    exit()
+if arr[0]!=arr[1]:
+    print(arr[0])
+    exit()
+if arr[n-1]!=arr[n-2]:
+    print(arr[len(arr)-1])
+    exit()
+while(low<=high):
+    mid = (low+high)//2
+    if(arr[mid-1]!=arr[mid] and arr[mid]!=arr[mid+1]):
+        print(arr[mid])
+        exit()
+    if(mid%2==1 and arr[mid]==arr[mid-1]) or (mid%2==0 and arr[mid]==arr[mid+1]):
+        low = mid+1
+    else:
+        high = mid-1
+print(-1)
